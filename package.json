@@ -1,0 +1,22 @@
+{
+    "name": "harrypotterapi",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon app.js",
+        "start:debug": "node inspect app.js",
+        "test": "ECHO todo test"
+    },
+    "keywords": [],
+    "author": "Karaoglan",
+    "dependencies": {
+        "aws-sdk": "^2.1125.0",
+        "axios": "^0.27.2",
+        "dotenv": "^16.0.0",
+        "express": "^4.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.16"
+    }
+}
