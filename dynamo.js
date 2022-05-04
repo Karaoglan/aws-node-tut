@@ -1,10 +1,13 @@
 const AWS = require("aws-sdk");
-require("dotenv").config();
+const dotenv = require("dotenv");
+const path = require("path");
+
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 AWS.config.update({
     region: process.env.AWS_DEFAULT_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS,
 });
 
 const TABLE_NAME = "mockapi";
@@ -21,12 +24,13 @@ const getCharacters = async () => {
     return characters;
 };
 
-const addOrUpdateChar = (character) => {
+const addOrUpdateChar = async (character) => {
+    debugger;
     const param = {
         TableName: TABLE_NAME,
         Item: character,
     };
-    return dynamoClient.put(param).promise();
+    return await dynamoClient.put(param).promise();
 };
 
 module.exports = {

@@ -10,11 +10,11 @@ const characterNew = {
 const sendData = async () => {
     try {
         const { data: characters } = await axios.get(process.env.API);
-        debugger;
+        console.log(characters);
         const characterPromises = characters.map((character, i) => {
             addOrUpdateChar({ ...character, id: i + "" });
         });
-        await Promise.all(characterPromises);
+        return await Promise.all(characterPromises);
     } catch (error) {
         console.log("ERR");
         console.error(error);

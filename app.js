@@ -21,6 +21,7 @@ app.get("/characters", async (req, res) => {
 app.get("/seed", async (req, res) => {
     try {
         await sendData();
+        res.send("finished");
     } catch (error) {
         console.log("ERR chars");
         console.error(error);
